@@ -11,7 +11,6 @@ body {
     background: var(--black);
     font-family: Menlo, monospace;
     display: grid;
-    padding: 32px;
     justify-content: center;
     margin-top: 32px;
     padding: 16px;
@@ -40,43 +39,48 @@ input {
 
 p {
     display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     margin: 0;
 }
 
-letter {
-    color: var(--gray);
-    position: relative;
-
-    &.active::before {
-        content: '|';
-        color: var(--yellow);
-        font-size: 14px;
-        font-weight: bold;
-        position: absolute;
-        left: -65%;
-        animation: 1s blink infinite ease-in-out;
-    }
-
-    &.active.is-last::before {
-        left: 65%;
-    }
-
-    &.correct {
-        color: var(--green);
-    }
-
-    &.incorrect {
-        color: var(--red);
-    }
-}
-
-word {
+.word {
+    display: inline-flex;
+    margin-right: 8px;
     border-bottom: 1.5px solid transparent;
     transition: border-color 0.3s ease-in-out;
+}
 
-    &.marked {
-        border-color: var(--red);
-    }
+.word.marked {
+    border-color: var(--red);
+}
+
+.letter {
+    color: var(--gray);
+    position: relative;
+    display: inline-block;
+}
+
+.letter.active::before {
+    content: '|';
+    color: var(--yellow);
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    left: -65%;
+    animation: 1s blink infinite ease-in-out;
+}
+
+.letter.active.is-last::before {
+    left: 65%;
+}
+
+.letter.correct {
+    color: var(--green);
+}
+
+.letter.incorrect {
+    color: var(--red);
 }
 
 @keyframes blink {
@@ -116,10 +120,10 @@ button {
     cursor: pointer;
     border-radius: 16px;
     color: var(--gray);
+}
 
-    &:hover {
-        background: #444;
-        opacity: 1;
-        scale: 110%;
-    }
+button:hover {
+    background: #444;
+    opacity: 1;
+    transform: scale(1.1);
 }
