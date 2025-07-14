@@ -10,7 +10,7 @@ const $results = document.querySelector('#results');
 const $exactitud = $results.querySelector('#results-exactitud');
 const $button = document.querySelector('#reload-button');
 
-const INITIAL_TIME = 30;
+const INITIAL_TIME = 60;
 
 let words = [];
 let currentTime = INITIAL_TIME;
